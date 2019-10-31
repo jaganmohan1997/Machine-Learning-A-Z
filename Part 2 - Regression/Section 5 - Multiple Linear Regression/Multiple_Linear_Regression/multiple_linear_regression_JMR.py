@@ -73,7 +73,35 @@ regressor_OLS.summary()
 X_opt = X[:,[0,3]]
 regressor_OLS = sm.OLS(y,X_opt).fit()
 regressor_OLS.summary()
-#Hence only the amount that we spend in research is useful for us
+#Hence only the amount that we spend in research is useful for us in getting the profits
+
+# Following is the code to automate the backward propagation with no loss to adjusted R Squared value
+def backwardElimination(x, SL):
+    numVars = len(x[0])
+    for i in range(0, numVars):
+        regressor_OLS = sm.OLS(y, x).fit()
+        maxVar = max(regressor_OLS.pvalues).astype(float)
+        adjR_before = regressor_OLS.rsquared_adj.astype(float)
+        if maxVar > SL:
+            for j in range(0, numVars - i):
+                if (regressor_OLS.pvalues[j].astype(float) == maxVar):
+                    temp = x[:, j]
+                    x = np.delete(x, j, 1)
+                    tmp_regressor = sm.OLS(y, x).fit()
+                    adjR_after = tmp_regressor.rsquared_adj.astype(float)
+                    if (adjR_before >= adjR_after):
+                        x_rollback1 = np.append(x,temp.reshape(-1,1), axis = 1)
+                        print (regressor_OLS.summary())
+                        return x_rollback1
+                    else:
+                        continue
+    regressor_OLS.summary()
+    return x
+ 
+SL = 0.05
+X_opt = X[:, [0, 1, 2, 3, 4, 5]]
+X_Modeled = backwardElimination(X_opt, SL)
+#Hence we get R&D Spend and Marketing Spend as best variables to build the model with R-squared value of 0.948
 
 
 
