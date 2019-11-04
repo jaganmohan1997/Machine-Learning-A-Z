@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 # Importing the dataset
-df = pd.read_csv('Position_Salaries.csv')# We see that we have a non linear regression problem hopefully polynomial kernal will do for us
+df = pd.read_csv('Position_Salaries.csv')
 
 X = df.iloc[:,1:2].values
 y = df.iloc[:,2].values
