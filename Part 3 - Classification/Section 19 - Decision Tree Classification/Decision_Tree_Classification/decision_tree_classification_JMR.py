@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov  5 16:02:34 2019
+Created on Tue Nov  5 16:09:54 2019
 
 @author: user4
 """
@@ -53,10 +53,10 @@ X_test = standard_scaler_x.transform(X_test)
 
 
 # Building the classifier
-from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
 
 #Using euclidean distance in the algorithm
-classifier = GaussianNB()
+classifier = DecisionTreeClassifier(max_depth=5, min_samples_leaf=5, min_samples_split=10)
 
 classifier.fit(X_train, y_train)
 
@@ -68,7 +68,7 @@ from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
 accuracy = (cm[0,0] + cm[1,1])/sum(sum(cm))
 accuracy
-
+#Data is just 400 and we can tune more if only we have more observations and features.
 
 
 
