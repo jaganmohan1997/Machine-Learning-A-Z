@@ -1,102 +1,54 @@
 # Machine-Learning-A-Z
 Exploring Machine Learning from A to Z
 
-from keras.models import Sequential
+Please note that time is in seconds and convert to hours to apply HourlyRate.
 
-from keras.layers import Conv2D
-
-from keras.layers import MaxPooling2D
-
-from keras.layers import Flatten
-
-from keras.layers import Dense
+fpathdata="D:/gg0094889/TECHM/Project/AT&T/DLE/PyOmo/Data/Data/"
+fname1='belgium-n100-k10.csv'
+fname2='belgium-road-km-n100-k10.csv'
+fname3='belgium-road-time-n100-k10.csv'
+fname4='belgium-tw-d3-n100-k10.vrp'
 
 
+df1=pd.read_csv(fpathdata+fname1)
+df2=pd.read_csv(fpathdata+fname2)
+df3=pd.read_csv(fpathdata+fname3)
+df4=pd.read_csv(fpathdata+fname4)
 
-#Initilizating CNN
+dfLatLong = df1.iloc[7:107,0:3]
+dfDemand  = df1.iloc[108:208,0:3]
+dfkm      = df2.iloc[110:210,:]
+dftime    = df3.iloc[110:210,:]
+dfLatLong.columns=['LocId','Lat','Long']
 
-classification = Sequential()
+dfkm.columns=dfLatLong['LocId'].unique()
+dfkm.set_index(dfLatLong['LocId'].unique(),inplace=True)
+dftime.columns=dfLatLong['LocId'].unique()
+dftime.set_index(dfLatLong['LocId'].unique(),inplace=True)
 
+dfkm=dfkm.astype(float)
+dftime=dftime.astype(float)
 
+dfDemand.columns=['LocId','Demand','Name']
 
-# Step 1 -> Convolution
-
-#classification.add(Conv2D(32,(3,3),input_shape=(32,32,3),activation='relu'))
-
-classification.add(Conv2D(32,(3,3),input_shape=(32,32,1),activation='relu'))
-
-
-
-# Step 2 -> Max Pooling
-
-classification.add(MaxPooling2D(pool_size=(2,2)))
-
-
-
-# Step 3 -> Flattening
-
-classification.add(Flatten())
+print(df1.shape,df2.shape,df3.shape)
 
 
+n1 = 108
+n2 = n1+100
+df4.iloc[n1:n2,:]
+dfDem=df4.iloc[n1:n2,0].str.split(' ',expand=True)
+dfDem.columns=["LocId","Demand","StartTime","EndTime","Capacity"]
+dfDem
 
-# Step 4 -> Full Connection
+lstDemand = sorted(map(int,dfDemand['LocId'].unique()))
+lstDem    = sorted(map(int,dfDem['LocId'].unique()))
 
-classification.add(Dense(units=128,activation='relu'))
-
-
-
-# Step 5 -> Combining all the steps together to create the CNN
-
-classification.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
-
-
-
-# Part 2 - Fitting the CNN to the images
-
-from keras.preprocessing.image import ImageDataGenerator
+dLocIdMap = dict(zip(lstDemand,lstDem))
 
 
-
-train_datagen = ImageDataGenerator(rescale = 1./255,
-
-                                   shear_range = 0.2,
-
-                                   zoom_range = 0.2,
-
-                                   horizontal_flip = True)
-
-
-
-test_datagen = ImageDataGenerator(rescale = 1./255)
-
-
-
-training_set = train_datagen.flow_from_directory('dataset/train_data',
-
-                                                 target_size = (32, 32),
-
-                                                 batch_size = 32,
-
-                                                 class_mode = 'binary')
-
-
-
-test_set = test_datagen.flow_from_directory('dataset/test_data',
-
-                                            target_size = (32, 32),
-
-                                            batch_size = 32,
-
-                                            class_mode = 'binary')
-
-
-
-classification.fit_generator(training_set,
-
-                         steps_per_epoch = 4000,
-
-                         epochs = 15,
-
-                         validation_data = test_set,
-
-                         validation_steps = 1000)
+dfkm.columns   = lstDem
+dfkm.index     = lstDem
+dftime.columns = lstDem
+dftime.index   = lstDem
+dfkm
