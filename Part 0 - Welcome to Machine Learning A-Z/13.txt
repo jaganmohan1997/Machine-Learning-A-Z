@@ -1,13 +1,13 @@
 University of Washington - 7 - Jan15th
 University of Michigan - 9 - Jan 15th
 Georgia Institute of Technology - 11 - Feb 1st
-University of California, Los Angeles - 16 - Dec1st
-University of Southern California - 19
-Purdue University - 17
-Boston University - 43
-Ohio state university - 34
-Arizona State University - 56
-California Institue of Technology - 64
-Michigan State University - 58
-Yale University - 42
-Georgia State University - 124
+NA - University of California, Los Angeles - 16 - Dec1st
+University of Southern California - 19 - Jan 15th
+Purdue University - 17 - Jan 6th
+Boston University - 43 - April 1st
+Ohio state university - 34 - Jan 31st
+NA - Arizona State University - 56 - Dec 1st
+NA - California Institue of Technology - 64 - Dec 15th
+Michigan State University - 58 - Jan 15th
+Yale University - 42 - Jan 2nd
+Georgia State University - 124 - April 15th
