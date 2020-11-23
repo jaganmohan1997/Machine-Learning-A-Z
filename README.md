@@ -16,3 +16,4 @@ https://www.amazon.com/ASUS-ZenBook-UM433DA-DH75-90NB0PD6-M00680-1920x1080/dp/B0
 
 https://www.amazon.com/Acer-Octa-Core-Graphics-Fingerprint-SF314-42-R9YN/dp/B086KKKT15/ref=sr_1_4?dchild=1&keywords=14+inch+laptop&qid=1606107270&s=electronics&sr=1-4
 
+https://www.amazon.com/ASUS-VivoBook-Display-Fingerprint-TM420IA-DB51T/dp/B08D69XNG1/ref=sr_1_15?dchild=1&keywords=14%2Binch%2Blaptop&qid=1606107270&refinements=p_n_feature_four_browse-bin%3A18107801011&rnid=676578011&s=pc&sr=1-15&th=1
