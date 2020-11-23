@@ -10,3 +10,7 @@ https://www.amazon.com/ASUS-VivoBook-R5-3500U-Graphics-F512DA-EB51/dp/B085344M9Q
 
 
 https://www.amazon.com/ASUS-VivoBook-i5-1135G7-Thunderbolt-S433EA-DH51/dp/B08KH4BND6/ref=sr_1_4?dchild=1&keywords=asus+vivobook+%6014inch+laptop&qid=1606106784&refinements=p_n_size_browse-bin%3A2423840011&rnid=2242797011&s=pc&sr=1-4
+
+
+https://www.amazon.com/ASUS-ZenBook-UM433DA-DH75-90NB0PD6-M00680-1920x1080/dp/B084ZPT9ST/ref=sr_1_2?dchild=1&keywords=asus+vivobook+%6014inch+laptop&qid=1606106794&refinements=p_n_size_browse-bin%3A2423840011%2Cp_n_feature_seven_browse-bin%3A18107814011&rnid=3012494011&s=pc&sr=1-2
+
